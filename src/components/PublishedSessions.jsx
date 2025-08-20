@@ -136,7 +136,6 @@ const PublishedSessions = () => {
                 {/* Hover indicator */}
                 <div className="relative z-10 mt-6 opacity-0 group-hover:opacity-100 transition-all duration-300 text-center">
                   <div className="inline-flex items-center gap-2 text-sm font-medium text-purple-600">
-                    View Details
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
