@@ -40,7 +40,7 @@ const Navbar = () => {
   if (!token) return null;
 
   return (
-    <nav className="fixed z-50 top-8 right-8 lg:top-12 lg:right-44" ref={menuRef}>
+    <nav className="fixed z-50 top-8 right-8 lg:top-8 lg:right-30" ref={menuRef}>
       {/* Floating Hamburger Button */}
       <button
         onClick={() => setMenuOpen(!menuOpen)}
