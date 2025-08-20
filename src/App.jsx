@@ -12,7 +12,6 @@ import EditSession from './components/EditSession';
 import CreateSession from './components/CreateSession';
 import Navbar from './components/Navbar';
 import { useEffect } from 'react'; 
-import "react-cool-cursors/dist/style.css";
 
 function AppContent() {
   const location = useLocation();
