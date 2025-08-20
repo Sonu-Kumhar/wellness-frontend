@@ -24,7 +24,7 @@ const EditSession = () => {
     const fetchSession = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`${BASE_URL}/my-sessions`, {
+        const res = await axios.put(`${BASE_URL}/my-sessions`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const session = res.data.find((s) => s._id === id);
