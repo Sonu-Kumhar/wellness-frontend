@@ -52,7 +52,7 @@ const EditSession = () => {
   const handleUpdate = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`http://localhost:5000/my-sessions/${id}`, form, {
+      await axios.put(`${BASE_URL}/my-sessions/${id}`, form, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
