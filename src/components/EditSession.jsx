@@ -21,29 +21,31 @@ const EditSession = () => {
 
   // Fetch session details
   useEffect(() => {
-    const fetchSession = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const res = await axios.put(`${BASE_URL}/my-sessions`, {
-          headers: { Authorization: `Bearer ${token}` },
+  const fetchSession = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await axios.get(`${BASE_URL}/my-sessions/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const session = res.data;
+
+      if (session) {
+        setForm({
+          ...session,
+          date: session.date ? session.date.slice(0, 10) : "",
         });
-        const session = res.data.find((s) => s._id === id);
-        if (session) {
-          setForm({
-            ...session,
-            date: session.date ? session.date.slice(0, 10) : "",
-          });
-        } else {
-          toast.error("❌ Session not found");
-        }
-      } catch (err) {
-        toast.error("❌ Failed to load session");
-      } finally {
-        setLoading(false);
+      } else {
+        toast.error("❌ Session not found");
       }
-    };
-    fetchSession();
-  }, [id]);
+    } catch (err) {
+      toast.error("❌ Failed to load session");
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchSession();
+}, [id]);
+
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
