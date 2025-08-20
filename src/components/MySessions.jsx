@@ -32,7 +32,7 @@ const MySessions = () => {
     if (!window.confirm("Are you sure you want to delete this session?")) return;
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/my-sessions/${id}`, {
+     await axios.delete(`${BASE_URL}/my-sessions/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSessions(prev => prev.filter(s => s._id !== id));
